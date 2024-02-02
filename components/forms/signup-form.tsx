@@ -120,6 +120,16 @@ export const SignupForm = () => {
           </Button>
         </div>
       </div>
+      <div className="flex items-center justify-center mt-5">
+        <p className="text-[#898989] tracking-tight">
+          Already have an account?{" "}
+          <span className="-ml-4">
+            <Button className=" items-start justify-start" variant={"link"}>
+              Login
+            </Button>
+          </span>
+        </p>
+      </div>
     </>
   );
 };
