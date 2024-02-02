@@ -49,10 +49,12 @@ export const Navbar = () => {
               ))}
             </ul>
             <div className="gap-10 flex">
-              <Button variant={"ghost"} className="text-white">
-                Login
+              <Button variant={"ghost"} className="text-white" asChild>
+                <Link href={"/login"}>Login</Link>
               </Button>
-              <Button>Pre-Order</Button>
+              <Button asChild>
+                <Link href={"/pre-order"}>Pre-Order</Link>
+              </Button>
             </div>
           </div>
           <div className="lg:hidden">
