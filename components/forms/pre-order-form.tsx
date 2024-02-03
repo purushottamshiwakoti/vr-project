@@ -42,7 +42,7 @@ export const PreorderForm = () => {
     // ✅ This will be type-safe and validated.
     console.log(values);
 
-    router.push("/pre-order");
+    router.push("/timeline");
   }
 
   return (
@@ -73,7 +73,7 @@ export const PreorderForm = () => {
                       </div>
                     </FormControl>
 
-                    <FormMessage className="ml-10" />
+                    <FormMessage className="ml-2" />
                   </FormItem>
                 )}
               />
@@ -87,7 +87,6 @@ export const PreorderForm = () => {
                         <Input
                           placeholder="Refferal Code (optional)"
                           className="w-[20rem] h-[3rem] pl-8 "
-                          type="password"
                           {...field}
                         />
                         <div className="absolute top-[0.8rem] left-3 mt-1 mr-1">
@@ -96,7 +95,7 @@ export const PreorderForm = () => {
                       </div>
                     </FormControl>
 
-                    <FormMessage className="ml-10" />
+                    <FormMessage className="ml-2" />
                   </FormItem>
                 )}
               />

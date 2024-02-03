@@ -22,7 +22,7 @@ export const Navbar = () => {
   return (
     <>
       <nav>
-        <div className="bg-[#120e16] fixed w-full h-16 flex items-center justify-between lg:px-32 px-5">
+        <div className="bg-[#120e16] fixed w-full h-16 flex items-center justify-between lg:px-32 px-5 ">
           <div className="text-white lg:text-3xl md:text-2xl text-xl  font-medium  ">
             <Link href={"/"}>logo</Link>
           </div>

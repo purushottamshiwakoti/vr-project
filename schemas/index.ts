@@ -16,3 +16,11 @@ export const signupSchema = z.object({
         message:"Code must be minimum of 2 characters"
     }),
   })
+
+  export const orderSchema = z.object({
+    country: z.string().min(2,{
+        message:"Please select a country"
+    }),
+    email: z.any(z.string()).nullable(),
+    options: z.any(z.string()).nullable(),
+  })
