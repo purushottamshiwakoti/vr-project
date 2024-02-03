@@ -101,7 +101,7 @@ export const TimelineCard = ({
         className={cn(
           currentStep
             ? "bg-[#f95611] border-4 border-[#fa6a2d] w-8 h-8 rounded-full absolute -right-3 -top-4"
-            : "bg-[#8b8b8b]  w-8 h-8 rounded-full absolute -right-3 -top-4"
+            : "bg-[#8b8b8b]  w-8 h-8 rounded-full absolute -right-3 -top-4 z-20"
         )}
       />
       {showCard && (

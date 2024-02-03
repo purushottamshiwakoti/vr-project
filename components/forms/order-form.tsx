@@ -24,10 +24,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Info } from "lucide-react";
+import { Info, Mail } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const OrderForm = () => {
+  const router = useRouter();
   const [options, setOptions] = useState("fullPayment");
   const form = useForm<z.infer<typeof orderSchema>>({
     resolver: zodResolver(orderSchema),
@@ -104,9 +106,14 @@ export const OrderForm = () => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Alternative email" />
-                          </SelectTrigger>
+                          <div className="relative">
+                            <SelectTrigger className="pl-7">
+                              <SelectValue placeholder="Alternative email" />
+                            </SelectTrigger>
+                            <div className="absolute top-3 left-2  mt-1 mr-1">
+                              <Mail className="text-[#898989] w-5 h-5  " />
+                            </div>
+                          </div>
                         </FormControl>
                         <SelectContent>
                           <SelectItem value="m@example.com">
@@ -186,7 +193,11 @@ export const OrderForm = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full h-[56px]">
+                <Button
+                  type="submit"
+                  className="w-full h-[56px]"
+                  onClick={() => router.push("/payment")}
+                >
                   Continue to payment
                 </Button>
               </div>
