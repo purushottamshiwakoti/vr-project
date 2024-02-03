@@ -6,12 +6,12 @@ export const userNav=[
     },
     {
             name:"Resources",
-            href:"/resources",
+            href:"/order-details",
             hasChildren:true,
     },
     {
             name:"Pricing",
-            href:"/pricing",
+            href:"/order-details",
             hasChildren:false,
     },
 ]

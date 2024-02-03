@@ -50,7 +50,7 @@ export const Navbar = () => {
             </ul>
             <div className="gap-10 flex">
               <Button variant={"ghost"} className="text-white" asChild>
-                <Link href={"/login"}>Login</Link>
+                <Link href={"/signup"}>Login</Link>
               </Button>
               <Button asChild>
                 <Link href={"/pre-order"}>Pre-Order</Link>
