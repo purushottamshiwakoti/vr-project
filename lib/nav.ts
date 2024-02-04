@@ -34,7 +34,7 @@ export const userNav=[
     },
     {
             name:"Resources",
-            href:"/resources",
+            href:"/order-details",
             hasChildren:true,
             children:[
                 {
@@ -65,7 +65,7 @@ export const userNav=[
     },
     {
             name:"Pricing",
-            href:"/pricing",
+            href:"/order-details",
             hasChildren:false,
     },
 ]
