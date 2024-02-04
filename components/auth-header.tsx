@@ -11,10 +11,15 @@ export const AuthHeader = ({
 }) => {
   return (
     <>
-      <div className="relative  w-[80px] h-[80px] ">
-        <Image src={image} alt={alt} fill />
+      <div className="relative  w-[100px] h-[100px]     ">
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          className="rounded-full object-cover zoom-in-150"
+        />
       </div>
-      <h2 className="text-white text-2xl mb-5 font-medium tracking-normal">
+      <h2 className="text-white text-2xl mb-5 font-medium tracking-normal ">
         {title}
       </h2>
     </>

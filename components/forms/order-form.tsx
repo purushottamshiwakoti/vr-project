@@ -28,7 +28,38 @@ import { Info, Mail } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command";
+
+import type {
+  ICountry,
+  ICountryData,
+  ILanguage,
+  TContinentCode,
+  TCountryCode,
+  TLanguageCode,
+} from "countries-list";
+import { continents, countries, languages } from "countries-list";
+import {
+  getCountryCode,
+  getCountryData,
+  getCountryDataList,
+  getEmojiFlag,
+} from "countries-list";
+
+import countries2to3 from "countries-list/minimal/countries.2to3.min.json";
+
 export const OrderForm = () => {
+  const countryNames = Object.values(countries).map((country) => country.name);
   const router = useRouter();
   const [options, setOptions] = useState("fullPayment");
   const form = useForm<z.infer<typeof orderSchema>>({
@@ -69,19 +100,25 @@ export const OrderForm = () => {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select a verified email to display" />
+                            <SelectValue placeholder="Select a Country" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="m@example.com">
-                            m@example.com
-                          </SelectItem>
-                          <SelectItem value="m@google.com">
-                            m@google.com
-                          </SelectItem>
-                          <SelectItem value="m@support.com">
-                            m@support.com
-                          </SelectItem>
+                          <Command>
+                            <CommandInput placeholder="Search country..." />
+                            <CommandList>
+                              <CommandEmpty>No results found.</CommandEmpty>
+                              <CommandGroup>
+                                {countryNames.map((item, index) => (
+                                  <CommandItem>
+                                    <SelectItem value={item} key={index}>
+                                      {item}
+                                    </SelectItem>
+                                  </CommandItem>
+                                ))}
+                              </CommandGroup>
+                            </CommandList>
+                          </Command>
                         </SelectContent>
                       </Select>
                       <FormDescription className="flex items-center text-[#7d7d7f] mt-1">
