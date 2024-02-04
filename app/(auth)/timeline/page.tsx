@@ -9,7 +9,7 @@ const TimelinePage = () => {
     <>
       <div className="pt-20">
         <div className="lg:flex items-center justify-center mx-10 lg:mx-0">
-          <TimelineHeader />
+          <TimelineHeader title="Timeline" />
           <div></div>
         </div>
         <div>

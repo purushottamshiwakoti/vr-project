@@ -2,12 +2,12 @@ import { Separator } from "@/components/ui/separator";
 
 interface OrderProps {
   title: string;
-  name: string;
-  quantity: string;
-  totalQuantity: string;
-  price: string;
-  totalPrice: string;
-  product: string;
+  name?: string;
+  quantity?: string;
+  totalQuantity?: string;
+  price?: string;
+  totalPrice?: string;
+  product?: string;
 }
 
 export const Order = ({

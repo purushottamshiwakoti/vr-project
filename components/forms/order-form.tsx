@@ -107,7 +107,7 @@ export const OrderForm = () => {
                       >
                         <FormControl>
                           <div className="relative">
-                            <SelectTrigger className="pl-7">
+                            <SelectTrigger className="pl-8">
                               <SelectValue placeholder="Alternative email" />
                             </SelectTrigger>
                             <div className="absolute top-3 left-2  mt-1 mr-1">

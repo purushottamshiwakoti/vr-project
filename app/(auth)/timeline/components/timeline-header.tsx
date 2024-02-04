@@ -15,7 +15,7 @@ import {
 import React, { useState } from "react";
 import { PopoverClose } from "@radix-ui/react-popover";
 
-export const TimelineHeader = () => {
+export const TimelineHeader = ({title}:{title:string}) => {
   const [openDate, setOpenDate] = useState<Date>();
   const [closeDate, setCloseDate] = useState<Date>();
 
@@ -24,7 +24,7 @@ export const TimelineHeader = () => {
       <div className="  ">
         <div>
           <h2 className="text-white text-3xl font-medium tracking-wide">
-            Timeline
+            {title}
           </h2>
           <Separator className="lg:w-[60rem] mt-2 border-[#393939] " />
           <div className="w-[60rem] mt-4 lg:flex items-center justify-between space-y-6">
