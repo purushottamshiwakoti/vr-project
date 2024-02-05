@@ -110,7 +110,7 @@ export const OrderForm = () => {
                               <CommandEmpty>No results found.</CommandEmpty>
                               <CommandGroup>
                                 {countryNames.map((item, index) => (
-                                  <CommandItem>
+                                  <CommandItem key={item}>
                                     <SelectItem value={item} key={index}>
                                       {item}
                                     </SelectItem>

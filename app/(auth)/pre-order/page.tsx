@@ -7,7 +7,7 @@ const PreorderPage = () => {
       <div className="flex items-center justify-center w-full h-full">
         <div className="flex flex-col items-center space-y-4">
           <AuthHeader
-            image="/logo.jpg"
+            image="/logo.png"
             alt="logo"
             title="Create an account for Pre-order"
           />

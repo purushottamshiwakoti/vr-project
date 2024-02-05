@@ -42,7 +42,11 @@ export const Navbar = () => {
       <nav>
         <div className="bg-[#120e16] fixed w-full h-16 flex items-center justify-between lg:px-32 px-5 z-50 ">
           <div className="text-white lg:text-3xl md:text-2xl text-xl  font-medium  ">
-            <Link href={"/"}>logo</Link>
+            <Link href={"/"}>
+              <div className="relative  w-[100px] h-[50px]     ">
+                <Image src={"/nav-logo.jpg"} alt={"humanverse"} fill />
+              </div>
+            </Link>
           </div>
           <div className="lg:flex items-center gap-10 hidden">
             <ul className="text-white flex space-x-10">
