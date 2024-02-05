@@ -34,10 +34,10 @@ export const Order = ({
               <span className="text-white">{totalQuantity}</span>
             </h2>
           </div>
-          <div>
+          <div className="flex flex-col justify-end items-end">
             <h2 className="text-lg font-medium text-[#686868]">{price}</h2>
-            <h2 className="text-lg font-medium text-[#686868]">
-              <span className="text-white ">{totalPrice}</span>
+            <h2 className="text-lg font-normal text-[#686868]">
+              <span className="text-white text-4xl">{totalPrice}</span>
             </h2>
           </div>
         </div>

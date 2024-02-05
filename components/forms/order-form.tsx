@@ -60,6 +60,7 @@ export const OrderForm = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    router.push("/payment");
   }
   return (
     <>
@@ -267,11 +268,7 @@ export const OrderForm = () => {
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  className="w-full h-[56px]"
-                  // onClick={() => router.push("/payment")}
-                >
+                <Button type="submit" className="w-full h-[56px]">
                   Continue to payment
                 </Button>
               </div>
