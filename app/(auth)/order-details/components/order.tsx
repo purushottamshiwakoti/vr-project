@@ -37,7 +37,7 @@ export const Order = ({
           <div>
             <h2 className="text-lg font-medium text-[#686868]">{price}</h2>
             <h2 className="text-lg font-medium text-[#686868]">
-              <span className="text-white -ml-5">{totalPrice}</span>
+              <span className="text-white ">{totalPrice}</span>
             </h2>
           </div>
         </div>

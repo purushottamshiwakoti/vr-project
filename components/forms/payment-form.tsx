@@ -7,7 +7,7 @@ export const PaymentForm = () => {
   const router = useRouter();
   return (
     <>
-      <div className="border-2 border-[#333333] bg-[#1b1b1d] p-5 rounded-xl shadow-lg lg:w-[35rem] h-[30rem] items-center   flex flex-col">
+      <div className="border-2 border-[#333333] bg-[#1b1b1d] p-5 rounded-xl shadow-lg lg:w-[45rem] h-[30rem] items-center   flex flex-col">
         <h2 className="text-white text-xl justify-center h-full items-center flex font-medium ">
           Add your payment information
         </h2>

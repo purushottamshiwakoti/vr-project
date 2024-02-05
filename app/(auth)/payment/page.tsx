@@ -5,7 +5,7 @@ import { PaymentForm } from "@/components/forms/payment-form";
 const PaymentPage = () => {
   return (
     <div>
-      <div className="pt-20 lg:px-[30rem] px-[1.5rem] ">
+      <div className="pt-20 lg:px-[20rem] px-[1.5rem] ">
         <Order
           name="VIP First"
           price="Per unit Price "

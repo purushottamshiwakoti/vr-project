@@ -21,6 +21,7 @@ export const signupSchema = z.object({
     country: z.string().min(2,{
         message:"Please select a country"
     }),
-    email: z.any(z.string()).nullable(),
+    email: z.string().email(),
     options: z.any(z.string()).nullable(),
+    quantity: z.number()
   })

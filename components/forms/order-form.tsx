@@ -15,7 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 
 import {
   Select,
@@ -24,41 +23,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Info, Mail } from "lucide-react";
-import { useState } from "react";
+import { Info, Mail, Minus, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 
-import type {
-  ICountry,
-  ICountryData,
-  ILanguage,
-  TContinentCode,
-  TCountryCode,
-  TLanguageCode,
-} from "countries-list";
-import { continents, countries, languages } from "countries-list";
-import {
-  getCountryCode,
-  getCountryData,
-  getCountryDataList,
-  getEmojiFlag,
-} from "countries-list";
-
-import countries2to3 from "countries-list/minimal/countries.2to3.min.json";
+import { countries } from "countries-list";
+import { Input } from "../ui/input";
 
 export const OrderForm = () => {
+  const [totalQuantity, setTotalQuantity] = useState<number>(1);
+
   const countryNames = Object.values(countries).map((country) => country.name);
   const router = useRouter();
   const [options, setOptions] = useState("fullPayment");
@@ -68,6 +51,7 @@ export const OrderForm = () => {
       country: "",
       email: "",
       options: "",
+      quantity: 1,
     },
   });
 
@@ -79,57 +63,110 @@ export const OrderForm = () => {
   }
   return (
     <>
-      <div className="border-2 border-[#333333] bg-[#1b1b1d] p-5 rounded-xl shadow-lg">
+      <div className="border-2 border-[#333333] bg-[#1b1b1d] p-10 rounded-xl shadow-lg">
         <h2 className="text-white text-xl font-medium">Add your information</h2>
 
         <div className="mt-5">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="space-y-7">
-                <FormField
-                  control={form.control}
-                  name="country"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">
-                        What country are you in? (required)
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a Country" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <Command>
-                            <CommandInput placeholder="Search country..." />
-                            <CommandList>
-                              <CommandEmpty>No results found.</CommandEmpty>
-                              <CommandGroup>
-                                {countryNames.map((item, index) => (
-                                  <CommandItem key={item}>
-                                    <SelectItem value={item} key={index}>
-                                      {item}
-                                    </SelectItem>
-                                  </CommandItem>
-                                ))}
-                              </CommandGroup>
-                            </CommandList>
-                          </Command>
-                        </SelectContent>
-                      </Select>
-                      <FormDescription className="flex items-center text-[#7d7d7f] mt-1">
-                        <Info className="h-4 w-4 mr-1 " />
-                        We are only able to accept the peroder from the
-                        countries in this list
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="grid grid-cols-4 ">
+                  <div className="col-span-3 mr-10">
+                    <FormField
+                      control={form.control}
+                      name="country"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white">
+                            What country are you in? (required)
+                          </FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select a Country" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <Command>
+                                <CommandInput placeholder="Search country..." />
+                                <CommandList>
+                                  <CommandEmpty>No results found.</CommandEmpty>
+                                  <CommandGroup>
+                                    {countryNames.map((item, index) => (
+                                      <CommandItem key={item}>
+                                        <SelectItem value={item} key={index}>
+                                          {item}
+                                        </SelectItem>
+                                      </CommandItem>
+                                    ))}
+                                  </CommandGroup>
+                                </CommandList>
+                              </Command>
+                            </SelectContent>
+                          </Select>
+                          <FormDescription className="flex items-center text-[#7d7d7f] mt-1">
+                            <Info className="h-4 w-4 mr-1 " />
+                            We are only able to accept the peroder from the
+                            countries in this list
+                          </FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="relative">
+                    <FormField
+                      control={form.control}
+                      name="quantity"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white ml-2">
+                            Quantity
+                          </FormLabel>
+
+                          <FormControl>
+                            <div className="flex items-center">
+                              <Button
+                                variant={"ghost"}
+                                className="text-white  absolute left-2  cursor-pointer hover:bg-[#352F3D] hover:text-white/80"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  totalQuantity > 1 &&
+                                    setTotalQuantity(totalQuantity - 1);
+                                }}
+                              >
+                                <Minus className="w-5" />
+                              </Button>
+                              <Input
+                                value={totalQuantity}
+                                onChange={(e) => {
+                                  setTotalQuantity(parseInt(e.target.value));
+                                  field.onChange(parseInt(e.target.value));
+                                }}
+                                type="number"
+                                className="w-[12.6rem] text-center h-[3rem]"
+                              />
+                              <Button
+                                variant={"ghost"}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setTotalQuantity(totalQuantity + 1);
+                                }}
+                                className="text-white  absolute bg-[#352F3D] right-2 cursor-pointer hover:bg-[#352F3D] hover:text-white/80"
+                              >
+                                <Plus className="w-5" />
+                              </Button>
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </div>
                 <FormField
                   control={form.control}
                   name="email"
@@ -233,7 +270,7 @@ export const OrderForm = () => {
                 <Button
                   type="submit"
                   className="w-full h-[56px]"
-                  onClick={() => router.push("/payment")}
+                  // onClick={() => router.push("/payment")}
                 >
                   Continue to payment
                 </Button>
