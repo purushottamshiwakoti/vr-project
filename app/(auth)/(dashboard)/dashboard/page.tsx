@@ -2,7 +2,7 @@ import React from "react";
 import { OrderSummary } from "./components/order-summary";
 import { Rewards } from "./components/rewards";
 import { Refferal } from "./components/refferal";
-import { Order } from "../../order-details/components/order";
+import { Order } from "../order-details/components/order";
 
 const DashboardPage = () => {
   return (

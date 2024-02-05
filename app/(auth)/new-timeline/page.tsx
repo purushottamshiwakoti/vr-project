@@ -1,5 +1,5 @@
 import React from "react";
-import { Order } from "../order-details/components/order";
+import { Order } from "../(dashboard)/order-details/components/order";
 import { TimelineHeader } from "../timeline/components/timeline-header";
 import { TimelineComponent } from "./components/timeline-component";
 
