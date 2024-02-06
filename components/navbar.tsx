@@ -7,6 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 import {
   Sheet,
   SheetContent,
@@ -43,7 +45,7 @@ export const Navbar = () => {
         <div className="bg-[#120e16] fixed w-full h-16 flex items-center justify-between lg:px-32 px-5 z-50 ">
           <div className="text-white lg:text-3xl md:text-2xl text-xl  font-medium  ">
             <Link href={"/"}>
-              <div className="relative  w-[300px] h-[50px]     ">
+              <div className="relative  md:w-[300px] w-[200px] h-[50px]     ">
                 <Image src={"/nav-logo.png"} alt={"humanverse"} fill />
               </div>
             </Link>
@@ -151,7 +153,7 @@ export const Navbar = () => {
               </Button>
             </div>
           </div>
-          <div className="lg:hidden">
+          <div className="lg:hidden  overflow-auto">
             <Sheet>
               <SheetTrigger>
                 <Menu className="w-7 h-7" color="white" />
@@ -175,9 +177,81 @@ export const Navbar = () => {
                             </Link>
                           </DialogClose>
                         ) : (
-                          <div className="flex items-center text-[#b3b3b3] cursor-pointer">
+                          <div
+                            className="flex items-center text-[#b3b3b3]  
+                           
+                            cursor-pointer relative"
+                            ref={ref}
+                            onClick={() => setOpenNav(item.name)}
+                          >
                             {item.name}
-                            <ChevronDown className="w-5 h-5 ml-1" />
+                            {item.name == openNav ? (
+                              <ChevronUp className="w-5 h-5 ml-1" />
+                            ) : (
+                              <ChevronDown className="w-5 h-5 ml-1" />
+                            )}
+                          </div>
+                        )}
+                        {item.name === openNav && (
+                          <div className="absolute lg:-ml-[15rem] -ml-[1rem] mt-[1rem] h-[30rem]  lg:w-[40rem] w-full z-50 overflow-y-auto ">
+                            <div className=" ">
+                              <div className="bg-[#06090F]  rounded-t-lg rounded-l-lg border-l-[1px] border-b-[1px] border-[#727272]  w-full p-4">
+                                <div>
+                                  {item.name === openNav &&
+                                    item.children?.map((item) =>
+                                      item.nav.map((navItem) => (
+                                        <div className="" key={navItem.name}>
+                                          <div className="flex mb-4   cursor-pointer">
+                                            <navItem.icon className="w-6 h-6 text-green-500 mr-2 items-start mt-2" />
+                                            <div>
+                                              <h2>{navItem.name}</h2>
+                                              <p className="text-[#727272]">
+                                                {navItem.description}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))
+                                    )}
+                                </div>
+                              </div>
+                              <div
+                                className="bg-[#202020] w-full
+                              rounded-r-lg  border-b-[1px]
+                              p-4 border-[#727272]
+                            "
+                              >
+                                {item.name === openNav &&
+                                  item.children?.map((it) => (
+                                    <div key={it.title}>
+                                      <div className="w-[17rem] h-[7rem] relative">
+                                        <Image
+                                          src={it.image}
+                                          alt={it.image}
+                                          fill
+                                          className="rounded-md"
+                                        />
+                                      </div>
+                                      <div className="ml-3 space-y-2">
+                                        <h2 className="mt-5  font-medium">
+                                          {it.title}
+                                        </h2>
+                                        <p className="text-[#727272] tracking-tight leading-5">
+                                          {it.description}
+                                        </p>
+                                        <div className="text-[#727272] tracking-normal font-medium flex items-center  space-x-4">
+                                          <h2 className="cursor-pointer">
+                                            {it.button1}
+                                          </h2>
+                                          <h2 className="cursor-pointer">
+                                            {it.button2}
+                                          </h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ))}
+                              </div>
+                            </div>
                           </div>
                         )}
                       </li>

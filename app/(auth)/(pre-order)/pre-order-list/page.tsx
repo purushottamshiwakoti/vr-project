@@ -9,7 +9,7 @@ const PreOrderList = () => {
         <div className="lg:flex items-center justify-center ">
           <TimelineHeader title="Pre-order List" />
         </div>
-        <div className="mx-[15rem] mt-10">
+        <div className="lg:mx-[15rem] md:mx-[1rem] mt-10">
           <SelectProduct />
         </div>
       </div>

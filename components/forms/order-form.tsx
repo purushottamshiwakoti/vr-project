@@ -71,7 +71,7 @@ export const OrderForm = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="space-y-7">
-                <div className="grid grid-cols-4 ">
+                <div className="grid lg:grid-cols-4 ">
                   <div className="col-span-3 mr-10">
                     <FormField
                       control={form.control}
@@ -109,7 +109,7 @@ export const OrderForm = () => {
                             </SelectContent>
                           </Select>
                           <FormDescription className="flex items-center text-[#7d7d7f] mt-1">
-                            <Info className="h-4 w-4 mr-1 " />
+                            <Info className="md:h-4 md:w-4 h-10 w-10  mr-1 " />
                             We are only able to accept the peroder from the
                             countries in this list
                           </FormDescription>
@@ -203,7 +203,7 @@ export const OrderForm = () => {
                         </SelectContent>
                       </Select>
                       <FormDescription className="flex items-center text-[#7d7d7f] mt-1">
-                        <Info className="h-7 w-7 mr-1" />
+                        <Info className="d:h-4 md:w-4 h-14 w-14 mr-1" />
                         We will send you email to ask your final location to
                         delivery (the location should be in same country you
                         selected at the time of delivery)

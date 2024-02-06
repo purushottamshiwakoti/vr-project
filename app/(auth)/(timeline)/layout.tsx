@@ -2,8 +2,8 @@ import React from "react";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full lg:h-[120vh] h-[120vh] md:h-[100vh] bg-[url('/banner.png')] bg-cover">
-      <div className="bg-black/50 lg:h-[120vh] h-[120vh] md:h-[100vh]  ">
+    <div className="max-w-[100%] lg:h-[120vh] h-[160vh] md:h-[140vh] bg-[url('/banner.png')] bg-cover">
+      <div className="bg-black/50 lg:h-[120vh] h-[160vh] md:h-[140vh]  ">
         {children}
       </div>
     </div>

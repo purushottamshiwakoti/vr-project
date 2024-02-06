@@ -12,9 +12,7 @@ export const signupSchema = z.object({
     name: z.string().min(2,{
         message:"Name must be minimum of 2 characters"
     }),
-    code: z.string().min(2,{
-        message:"Code must be minimum of 2 characters"
-    }),
+    code: z.optional(z.string())
   })
 
   export const orderSchema = z.object({
@@ -25,3 +23,4 @@ export const signupSchema = z.object({
     options: z.any(z.string()).nullable(),
     quantity: z.number()
   })
+

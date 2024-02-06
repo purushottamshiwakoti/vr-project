@@ -9,7 +9,7 @@ export const SelectProduct = () => {
     <>
       <div className="bg-[#16131f] p-8  rounded-2xl border-2 border-[#333333]">
         <h3 className="text-white font-medium text-center">Select a Product</h3>
-        <div className="grid grid-cols-2 mt-10 gap-5">
+        <div className="grid lg:grid-cols-2 mt-10 gap-5">
           <ProductCard
             description="Full Payment - 10% Discount ($450 - $410) Booking with Minimum
           Amount - $100 ($350 at the time of delivery confirmation)"

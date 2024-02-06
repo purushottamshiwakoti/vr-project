@@ -1,6 +1,6 @@
 import React from "react";
-import { Order } from "../(dashboard)/order-details/components/order";
 import { PaymentForm } from "@/components/forms/payment-form";
+import { Order } from "../(dashboard)/(order-details)/order-details/components/order";
 
 const PaymentPage = () => {
   return (

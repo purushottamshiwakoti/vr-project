@@ -15,15 +15,15 @@ import {
 import React, { useState } from "react";
 import { PopoverClose } from "@radix-ui/react-popover";
 
-export const TimelineHeader = ({title}:{title:string}) => {
+export const TimelineHeader = ({ title }: { title: string }) => {
   const [openDate, setOpenDate] = useState<Date>();
   const [closeDate, setCloseDate] = useState<Date>();
 
   return (
     <>
-      <div className="  ">
+      <div className="overflow-y-hidden  ">
         <div>
-          <h2 className="text-white text-3xl font-medium tracking-wide">
+          <h2 className="text-white md:text-3xl text-xl font-medium tracking-wide">
             {title}
           </h2>
           <Separator className="lg:w-[60rem] mt-2 border-[#393939] " />
@@ -58,17 +58,17 @@ export const TimelineHeader = ({title}:{title:string}) => {
               </div>
             </div>
             <div className="flex items-center space-x-1 ">
-              <h2 className="text-[#686868] text-xl font-medium">
+              <h2 className="text-[#686868] md:text-xl text-lg font-medium">
                 Closing Date:
               </h2>
               <div className="text-white">
                 <Popover>
                   <PopoverTrigger asChild>
-                    <span className="text-lg font-normal cursor-pointer">
+                    <span className="text-lg font-normal cursor-pointer ">
                       {closeDate ? (
                         format(closeDate, "dd-MM-yyyy")
                       ) : (
-                        <span> DD-MM-YYYY</span>
+                        <span className="md:text-xl text-lg"> DD-MM-YYYY</span>
                       )}
                     </span>
                   </PopoverTrigger>

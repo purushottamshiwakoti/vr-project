@@ -1,12 +1,12 @@
 import React from "react";
-import { Order } from "../(dashboard)/order-details/components/order";
-import { TimelineHeader } from "../timeline/components/timeline-header";
+
 import { TimelineComponent } from "./components/timeline-component";
+import { TimelineHeader } from "../../timeline/components/timeline-header";
 
 const NewTimeline = () => {
   return (
     <>
-      <div className="pt-20 mx-10 lg:mx-0">
+      <div className="pt-20 mx-10 lg:mx-0 overflow-y-hidden">
         <div className="lg:flex items-center justify-center ">
           <TimelineHeader title="Timeline" />
         </div>
