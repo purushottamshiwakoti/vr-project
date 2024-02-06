@@ -64,7 +64,7 @@ export const OrderForm = () => {
   }
   return (
     <>
-      <div className="border-2 border-[#333333] bg-[#1b1b1d] p-10 rounded-xl shadow-lg">
+      <div className="border-2 border-[#333333] bg-[#1b1b1d] md:p-10 p-3 md:rounded-xl shadow-lg">
         <h2 className="text-white text-xl font-medium">Add your information</h2>
 
         <div className="mt-5">

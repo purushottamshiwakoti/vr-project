@@ -5,7 +5,7 @@ import { OrderForm } from "@/components/forms/order-form";
 const OrderDetailsPage = () => {
   return (
     <>
-      <div className="pt-20 lg:px-[20rem] px-[1.5rem] ">
+      <div className="pt-20 lg:px-[20rem] md:px-[1.5rem] ">
         <div>
           <Order
             name="VIP First"
