@@ -1,6 +1,6 @@
 import React from "react";
 import { SelectProduct } from "./components/select-product";
-import { TimelineHeader } from "../../timeline/components/timeline-header";
+import { TimelineHeader } from "../../(time)/timeline/components/timeline-header";
 
 const PreOrderList = () => {
   return (

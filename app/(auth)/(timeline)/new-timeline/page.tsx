@@ -1,7 +1,7 @@
 import React from "react";
 
 import { TimelineComponent } from "./components/timeline-component";
-import { TimelineHeader } from "../../timeline/components/timeline-header";
+import { TimelineHeader } from "../../(time)/timeline/components/timeline-header";
 
 const NewTimeline = () => {
   return (
